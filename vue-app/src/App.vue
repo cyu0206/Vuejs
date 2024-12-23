@@ -1,17 +1,23 @@
 <script setup>
+import BindingComponent from './components/BindingComponent.vue';
 import FirstComponent from './components/FirstComponent.vue';
-import Mycomponent from './components/Mycomponent.vue';
+import MyComponent from './components/MyComponent.vue';
+
+import SecondComponent from './components/SecondComponent.vue';
+
+
+
 </script>
 
 <template>
-<!-- <h2>Hello vue!!!</h2> -->
-<!-- <FirstComponent></FirstComponent> -->
-<!-- <first-component></first-component> -->
-<Mycomponent></Mycomponent>
-
+ <h2>Hello Vue!!!!!</h2>
+<BindingComponent></BindingComponent>
+<!-- <MyComponent></MyComponent>
+ <FirstComponent></FirstComponent>
+<SecondComponent></SecondComponent>  -->
 
 </template>
 
 <style scoped>
-h2{color:red}
+h2{color:green}
 </style>
