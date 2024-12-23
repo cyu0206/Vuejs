@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
     const message = ref("Text Interpolation")
     const isLogin = ref(false)
@@ -26,32 +26,10 @@ import { ref } from 'vue';
 
     const id = ref(1)
 
-    const isDisabled = ref(true)
+    const celsius = ref(0)
+    const fahrenheit = computed(() => Number(celsius.value) * 9 / 5 + 32)
 
-const toggleHandler = ()=>{
-    isDisabled.value  = !isDisabled.value
-}
 
-const name = ref('')
-const clickHandler = ()=>{
-   // console.log(name.value.trim().length)
-   console.log(name.value.length)
- //  if(name.value.trim() === "Tom"){
-    if(name.value === "Tom"){
-    console.log('帳號相同')
-   }else{
-    console.log('帳號不相同')
-   }
-}
-
-const num1 = ref(0)
-const num2 = ref(0)
-const total = ref(0)
-const addHandler = ()=>{
-    console.log(typeof num1.value)
-//   total.value = Number(num1.value) + Number(num2.value)
-  total.value = num1.value + num2.value
-}
 </script>
 
 <template>
@@ -85,25 +63,17 @@ const addHandler = ()=>{
     <img :src="imgUrl" :id />
     <img src="@/assets/bird150.jpg" alt="bird" />
 
-    <button @click="isDisabled = !isDisabled">Toggle1</button>
-    <button @click="toggleHandler">Toggle2</button>
-    <hr />
+    <button>Toggle</button>
     <button :disabled="isDisabled">click</button>
-<hr />
-    <!--雙向繫節-->
-    <!--.lazy 就會將原有input事件改成change事件-->
-    <!--.trim 會去掉前後的空白 -->
-    <input type="text" v-model.trim.lazy="name" /><button @click="clickHandler">click</button><span>{{ `Hello ${name}` }}</span>
-    <hr />
-    <!--.number 會將輸入數字字串轉型成數值型態-->
-    <input type="text" v-model.number="num1">
-    <input type="text" v-model.number="num2">
-    <button @click="addHandler">+</button><span>{{ total }}</span>
-   <div></div>
-   <div></div>
-   <div></div>
-   <div></div>
+
+    <div></div>
+
     </div>
+    <div>華氏：{{ (celsius * 9 / 5) + 32 }}</div>
+    <div>華氏：{{ fahrenheit }}</div>
+    
+
+
 </template>
 
 <style lang="css" scoped>
